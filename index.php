@@ -2,6 +2,7 @@
 
 use App\Controllers\PaymentController;
 use App\DTOs\PaymentDTO;
+use Core\App;
 
 require __DIR__ . '/vendor/autoload.php';
 class BootClass extends PaymentController {}
@@ -17,9 +18,8 @@ $paymentDTO = PaymentDTO::make([
     'created_at' => date('Y-m-d H:i:s'),
 ]);
 
-var_dump($paymentDTO);
+
 
 echo $paymentDTO->status . "<br />";
-
 echo $bootClass->processPayment('PayPal') . "<br />";
 echo $bootClass->success()['message'] . "<br />";
