@@ -2,10 +2,11 @@
 
 namespace App\DTOs;
 
-readonly class PaymentDTO
+ class PaymentDTO
 {
+    public static string $id;
     public function __construct(
-        public string $id,
+        // public string $id,
         public string $status,
         public string $amount,
         public string $currency,
@@ -16,7 +17,7 @@ readonly class PaymentDTO
     public static function make(array $data): self
     {
         return new self(
-            id: $data['id'],
+            // id: $data['id'],
             status: $data['status'],
             amount: $data['amount'],
             currency: $data['currency'],
