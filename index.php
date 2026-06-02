@@ -1,5 +1,6 @@
 <?php
 
+use App\Constants\Response;
 use App\Controllers\PaymentController;
 use App\DTOs\PaymentDTO;
 use App\Static\Greeting;
@@ -19,6 +20,12 @@ $paymentDTO = PaymentDTO::make([
 ]);
 
 new Greeting();
+"<br />";
+
+$message = Response::message('success');
+
+echo $message . "<br />";
+
 
 echo $paymentDTO->status . "<br />";
 echo $bootClass->processPayment('PayPal') . "<br />";
