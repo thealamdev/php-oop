@@ -4,6 +4,7 @@ namespace App\Static;
 
 class Greeting
 {
+    public static $message = 'Welcome to our application!';
 
     public function __construct()
     {
@@ -12,6 +13,6 @@ class Greeting
 
     public static function welcome()
     {
-        echo "Welcome to our application!";
+        echo self::$message;
     }
 }

@@ -3,7 +3,10 @@
 use App\Constants\Response;
 use App\Controllers\PaymentController;
 use App\DTOs\PaymentDTO;
+use App\Static\ChildClass;
 use App\Static\Greeting;
+use App\Static\Morning;
+use App\Static\ParentClass;
 
 require __DIR__ . '/vendor/autoload.php';
 class BootClass extends PaymentController {}
@@ -22,9 +25,16 @@ $paymentDTO = PaymentDTO::make([
 new Greeting();
 "<br />";
 
+$parent = ParentClass::show();
+
+$child = ChildClass::show();
+
+
 $message = Response::message('success');
 
 echo $message . "<br />";
+
+$response = new Response();
 
 
 echo $paymentDTO->status . "<br />";
