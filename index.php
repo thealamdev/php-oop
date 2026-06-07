@@ -3,10 +3,9 @@
 use App\Constants\Response;
 use App\Controllers\PaymentController;
 use App\DTOs\PaymentDTO;
-use App\Static\ChildClass;
 use App\Static\Greeting;
-use App\Static\Morning;
-use App\Static\ParentClass;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response as HttpFoundationResponse;
 
 require __DIR__ . '/vendor/autoload.php';
 class BootClass extends PaymentController {}
@@ -25,9 +24,17 @@ $paymentDTO = PaymentDTO::make([
 new Greeting();
 "<br />";
 
-$parent = ParentClass::show();
 
-$child = ChildClass::show();
+$request = Request::createFromGlobals();
+
+$name = $request->query->get('name', 'Guest');
+
+$respone = new HttpFoundationResponse(
+    "Hello {$name}",
+    HttpFoundationResponse::HTTP_OK
+);
+
+$respone->send();
 
 
 $message = Response::message('success');
